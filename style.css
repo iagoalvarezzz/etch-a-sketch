@@ -1,0 +1,23 @@
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.cell{
+  border: 2px solid black;
+  padding: 28px;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  justify-content: center;
+}
+
+.changeSize{
+  margin: 8px auto 16px;
+}
