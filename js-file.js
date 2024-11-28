@@ -19,8 +19,8 @@ changeSize.addEventListener("click",newSize);
 
 function newSize (){
   size = prompt("Insert new size");
-  while (size > 100)
-    if (size > 100) size = prompt("It can't be over 100");
+  while (size > 100 || size < 1)
+    size = prompt("It has to be between 1 and 100");
   deleteGrid();
   createNewGrid();
 }
@@ -33,9 +33,7 @@ function deleteGrid(){
 }
 
 function createNewGrid(){
-  console.log("iej");
   for(let i = 0; i < size ** 2; i++){
-    console.log("je");
     const div = document.createElement("div");
     div.classList.toggle("cell");
     div.id = "cell" + i;
