@@ -12,7 +12,7 @@ createNewGrid();
 container.addEventListener("mouseover", (event) =>{
   let str = "#" + event.target.id;
   let cell = document.querySelector(str);
-  cell.style.backgroundColor = "red";
+  cell.style.backgroundColor = randomColor();
 });
 
 changeSize.addEventListener("click",newSize);
@@ -41,6 +41,15 @@ function createNewGrid(){
     div.style.padding = (800 / size / 2) - 1 + "px";
     container.appendChild(div);
   }
+}
+
+function randomColor(){
+  let value1 = Math.round(Math.random() * 256);
+  let value2 = Math.round(Math.random() * 256);
+  let value3 = Math.round(Math.random() * 256);
+  let newColor = "rgb(" + value1 + "," + 
+    value2 + "," + value3 + ")";
+  return newColor;
 }
 
 });
