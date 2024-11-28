@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const container = document.querySelector(".container");
 const changeSize = document.querySelector(".changeSize");
+const changeMode = document.querySelector(".mode");
 let size = 16;
+let mode = 0;
 
 createNewGrid();
 
@@ -12,10 +14,31 @@ createNewGrid();
 container.addEventListener("mouseover", (event) =>{
   let str = "#" + event.target.id;
   let cell = document.querySelector(str);
-  cell.style.backgroundColor = randomColor();
+
+  if (mode === 0){
+    if (cell.style.backgroundColor !== "black")
+      cell.style.opacity = 0;
+    cell.style.backgroundColor = "black";
+    cell.style.opacity = +cell.style.opacity + 0.1;
+  } else{
+    cell.style.opacity = 1;
+    cell.style.backgroundColor = randomColor();
+  }
 });
 
+changeMode.addEventListener("click",toggleMode);
+
 changeSize.addEventListener("click",newSize);
+
+function toggleMode(){
+  if (changeMode.textContent === "Mode: opacity"){
+    changeMode.textContent = "Mode: color";
+    mode = 1;
+  } else{
+    changeMode.textContent = "Mode: opacity";
+    mode = 0;
+  }
+}
 
 function newSize (){
   size = prompt("Insert new size");

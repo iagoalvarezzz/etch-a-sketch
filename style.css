@@ -15,6 +15,6 @@ body{
   justify-content: center;
 }
 
-.changeSize{
+button {
   margin: 8px auto 16px;
 }
