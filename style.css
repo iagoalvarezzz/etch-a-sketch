@@ -6,10 +6,7 @@ body{
 }
 
 
-.cell{
-  border: 2px solid black;
-  padding: 28px;
-}
+
 
 .container{
   display: flex;
