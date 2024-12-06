@@ -8,8 +8,12 @@
   <script src="js-file.js"></script>
 </head>
 <body>
-  <button class="changeSize">Change grid sice</button>
-  <button class="mode">Mode: opacity</button>
+  <div class="controls">
+    <label for="size">Select grid size:</label>
+    <input class="sizeSelector" id="size" type="range" min="1" max="70" value="16" step="1">
+    <output class="outSize" for="size">16x16</output>
+    <button class="mode">Mode: opacity</button>
+  </div>
   <div class="container"></div>
 </body>
 </html>

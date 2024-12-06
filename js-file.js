@@ -1,8 +1,9 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+const showCurrentSize = document.querySelector(".outSize");
+const sizeSelector = document.querySelector(".sizeSelector");
 const container = document.querySelector(".container");
-const changeSize = document.querySelector(".changeSize");
 const changeMode = document.querySelector(".mode");
 let size = 16;
 let mode = 0;
@@ -28,7 +29,14 @@ container.addEventListener("mouseover", (event) =>{
 
 changeMode.addEventListener("click",toggleMode);
 
-changeSize.addEventListener("click",newSize);
+// changeSize.addEventListener("click",newSize);
+
+sizeSelector.addEventListener("input", () => {
+  size = sizeSelector.value;
+  showCurrentSize.textContent = size + "x" + size;
+  deleteGrid();
+  createNewGrid();
+});
 
 function toggleMode(){
   if (changeMode.textContent === "Mode: opacity"){
@@ -38,14 +46,6 @@ function toggleMode(){
     changeMode.textContent = "Mode: opacity";
     mode = 0;
   }
-}
-
-function newSize (){
-  size = prompt("Insert new size");
-  while (size > 100 || size < 1)
-    size = prompt("It has to be between 1 and 100");
-  deleteGrid();
-  createNewGrid();
 }
 
 function deleteGrid(){
@@ -60,8 +60,9 @@ function createNewGrid(){
     const div = document.createElement("div");
     div.classList.toggle("cell");
     div.id = "cell" + i;
-    div.style.border = "1px solid black";
-    div.style.padding = (800 / size / 2) - 1 + "px";
+    // div.style.padding = (800 / size / 2) - 1 + "px";
+    div.style.height = (100/size) + "%";
+    div.style.width = (100/size) + "%";
     container.appendChild(div);
   }
 }
